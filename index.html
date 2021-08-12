@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Online From</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- Add icon library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+</head>
+<body><br><br>
+<h1>User Registration</h1>
+
+<form name="google-sheet">
+	<div class="outerbox">
+		<div class="ficon">
+		<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+		</div>
+		<div class="fouterbox">
+			<div class="min">
+				<div class="left">
+					<input type="text" name="Frist Name" placeholder="Frist Name">
+					<input type="text" name="Last Name" placeholder="Last Name">
+					<input type="text" name="Email" placeholder="Email">
+					<input type="text" name="Mobile" placeholder="Mobile no">
+					
+					Male<input type="radio" name="Gender" value="Male">
+					Male<input type="radio" name="Gender" value="Female">
+					<input type="submit" name="submit" class="submit">					 								
+				</div>
+				<div class="right">
+					<select name="Maritalstatus">
+						<option value="Not Provided">Marital Status</option>
+						<option value="Married">Married</option>
+						<option value="Unmerried">Unmerried</option>
+					</select>
+					
+					<select name="Workexp">
+						<option value="Not Provided">Work Experience</option>
+						<option value="Fresher">Fresher</option>
+						<option value="Experienceed">Experienced</option>
+					</select>
+					
+					<textarea name="Address" placeholder="Address"></textarea>
+					<input type="reset" name="reset" class="reset">					 								
+						
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+<script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbycmKKNRkX6kxVajLkuEMCioK7Xza7CyT5jOZtVQ6F46M_CBz558f-NGRAJ9hvDcaXv/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+</body>
+</html>
